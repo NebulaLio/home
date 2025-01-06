@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nebula94</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow: hidden; /* 防止页面滚动 */
+        }
+
+        .background {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .background img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: white;
+            padding: 20px;
+            background: linear-gradient(to bottom, rgba(0, 0, 255, 0.5), rgba(255, 255, 255, 0.5));
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            opacity: 0; /* 初始透明度设置为0 */
+            animation: fadeIn 1s ease-out forwards; /* 动画效果 */
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+            box-sizing: border-box;
+            opacity: 0; /* 初始透明度设置为0 */
+            animation: fadeInGrid 2s ease-out forwards; /* 动画效果 */
+            animation-delay: 1s; /* 延迟动画 */
+        }
+
+        .grid-item {
+            background: white;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .grid-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInGrid {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+
+        p {
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <img src="beijing.jpg" alt="北京背景">
+    </div>
+    <div class="content">
+        <h1>欢迎来到我的个人博客</h1>
+        <p>分享所见所思所得</p>
+        <div class="grid">
+            <div class="grid-item" onclick="window.location.href='history.html'">历史介绍</div>
+            <div class="grid-item">格子2</div>
+            <div class="grid-item">格子3</div>
+            <div class="grid-item">格子4</div>
+            <div class="grid-item">格子5</div>
+            <div class="grid-item">格子6</div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const img = document.querySelector('.background img');
+
+            // 淡入效果
+            img.style.opacity = 0;
+            setTimeout(() => {
+                img.style.opacity = 1;
+            }, 100);
+
+            // 淡出效果（示例：5秒后淡出）
+            setTimeout(() => {
+                img.style.opacity = 0;
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
